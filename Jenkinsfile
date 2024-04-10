@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'npm install' 
+                echo "Hello this is my first Jenkins demo": %date% : %time% "
             }
         }
     }
