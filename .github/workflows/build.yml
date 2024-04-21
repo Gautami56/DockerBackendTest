@@ -24,3 +24,6 @@ jobs:
 
       - name: Run Node Application
         run: node example.js
+
+      - name: Upload static site content
+        uses: actions/upload-artifact@v3
