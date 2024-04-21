@@ -43,3 +43,8 @@ jobs:
 
       - name: List downloaded artifact contents
         run: ls -R
+
+      - name: Compress Artifacts content
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: my-artifact-test.zip
