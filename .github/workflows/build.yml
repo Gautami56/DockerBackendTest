@@ -29,17 +29,17 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: ./ # Specify the path to the files you want to upload
+          path: . # Specify the path to the files you want to upload (current directory)
 
-release-project:
-  name: Release Project
-  runs-on: ubuntu-latest
-  needs: build-project
-  steps:
-    - name: Download artifact
-      run: actions/download-artifact@v3
-      with:
-        name: my-artifact
+  release-project:
+    name: Release Project
+    runs-on: ubuntu-latest
+    needs: build-project
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact # Specify the name of the artifact to download
 
-    - name: Test artifact download
-      run: ls -R
+      - name: List downloaded artifact contents
+        run: ls -R
