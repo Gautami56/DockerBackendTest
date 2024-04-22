@@ -64,6 +64,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: ./my-artifact-test.zip
-          asset_name: my-artifact-test-v${{ github.run_number }}
+          asset_path: ./my-artifact.zip
+          asset_name: my-artifact-v${{ github.run_number }}
           asset_content_type: application/zip
