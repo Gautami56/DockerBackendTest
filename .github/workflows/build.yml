@@ -48,3 +48,22 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: my-artifact-test.zip
+
+      - name: Create Gitthub release project
+        id: create-new-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+
+      - name: Upload release project
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+          asset_path: ./my-artifact-test.zip
+          asset_name: my-artifact-test-v${{ github.run_number }}
+          asset_content_type: application/zip
