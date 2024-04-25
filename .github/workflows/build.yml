@@ -57,12 +57,13 @@ jobs:
         with:
           tag_name: ${{ github.run_number }}
           release_name: Release ${{ github.run_number }}
-      # - name: Upload release project
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      #   with:
-      #     upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-      #     asset_path: ./my-artifact.zip
-      #     asset_name: my-artifact-v${{ github.run_number }}
-      #     asset_content_type: application/zip
+
+      - name: Upload release project
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PAT_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+          asset_path: ./my-artifact.zip
+          asset_name: my-artifact-v${{ github.run_number }}.zip
+          asset_content_type: application/zip
