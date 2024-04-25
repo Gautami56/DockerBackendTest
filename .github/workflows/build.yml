@@ -26,10 +26,10 @@ jobs:
         run: node example.js
 
       - name: Upload static site content
-      uses: actions/upload-artifact@v3
-      with:
-        name: my-artifact
-        path: . # Specify the path to the files you want to upload (current directory)
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: . # Specify the path to the files you want to upload (current directory)
 
   release-project:
     name: Release Project
