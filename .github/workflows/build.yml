@@ -89,6 +89,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Setup Docker
+        uses: docker/setup-docker@v2
+        with:
+          version: "20.10.8" # Specify the Docker version you want to use
+
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
